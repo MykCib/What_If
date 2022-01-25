@@ -25,14 +25,14 @@ def historical(coin,day):
     ts = ciso8601.parse_datetime(day)
     unix = time.mktime(ts.timetuple())
     coin = coin.upper()
-    url_2 = "https://min-api.cryptocompare.com/data/pricehistorical?fsym={!s}&tsyms=USD&ts={!s}&api_key=31112ee7cd727c3df5e945c1470830d08c90bf4e8d180427a68ed16f0d873e9c".format(coin,unix)
+    url_2 = "https://min-api.cryptocompare.com/data/pricehistorical?fsym={!s}&tsyms=USD&ts={!s}&api_key=****".format(coin,unix) # API key hidden
     response_2 = requests.request("GET", url_2)
     json_2 = response_2.json()
     return json_2[coin]["USD"]
 
 def current(coin):
     coin = coin.upper()
-    url_1 = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={!s}&tsyms=USD&api_key=31112ee7cd727c3df5e945c1470830d08c90bf4e8d180427a68ed16f0d873e9c".format(coin)
+    url_1 = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms={!s}&tsyms=USD&api_key=****".format(coin) # API key hidden
     response_1 = requests.request("GET", url_1)
     json_1 = response_1.json()
     return json_1['RAW'][coin]['USD']['PRICE']
