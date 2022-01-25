@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/css.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% block title %} {% endblock %}
+ 
+</head>
+<body>
+    {% block body %} 
+    
+    {% endblock %}
+</body>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/js.js') }}"></script>
+
+<footer>
+        
+    <div class="nav3">
+    <a href="https://github.com/MykCib/Weather_App" target="_blank" class="fa fa-github icons" style="font-size:40px"></a>
+    
+    <a href="https://www.buymeacoffee.com/mykolas" target="_blank" class="coffee icons"><img src="{{ url_for('static',filename='bmc-logo.svg') }}" style="height: 30px !important;"> </a>
+    </div>
+        
+</footer>
+
+</html>

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<title>Date</title>
+
+{% endblock %}
+
+{% block body %}
+
+<h1 class="title">
+  What if you bought 
+  <nobr id="sequence" class="sequence">Bitcoin</nobr> in
+  <nobr id="sequence2" class="sequence2">2010</nobr>?
+</h1>
+
+<div class="what">
+  <form method="post" autocomplete="off">
+  <p>What if you invested <nobr><input type="number" id="number" name="number" placeholder="500" class="dollar"></nobr> 
+      dollars <br>in <nobr>
+      <nobr class="autocomplete">
+      <input class="coin" id="coin" type="text" name="coin" placeholder="Bitcoin"> 
+      </nobr>
+      </nobr>
+
+      back in <nobr><input class="backin" type="date" id="date" name="date" max={{today}} min="2010-01-01"></nobr>
+   
+  </p>
+      <input class="submit" type="submit" value="Check">
+      </form>
+      
+  </div>
+
+
+  {% if out=="bad" %}
+
+  <h3>Please enter a date!</h3>
+  
+  {% endif %}
+
+  {% if out=="number" %}
+
+  <h3>Please enter a number!</h3>
+  
+  {% endif %}
+
+  {% if out=="choice" %}
+
+  <h3>Please enter a coin name!</h3>
+  
+  {% endif %}
+
+  {% if out=="zero" %}
+
+  <h3>Please select a more recent date!</h3>
+  
+  {% endif %}
+
+
+{% if out=="good" %}
+<h2 class="answer">
+  On <nobr class="answer-inside">{{date_words}}</nobr> {{choice}} price was <nobr class="answer-inside">${{hist_price}}</nobr>
+  <br>
+  Right now you would have <nobr class="answer-inside">{{ammount}} {{answer}}</nobr> worth <nobr class="answer-inside">${{gain}}</nobr>
+  <br>
+  Your <nobr class="answer-inside">${{number}}</nobr> investment would have {{change}} <nobr class="answer-inside">{{up}}%</nobr>
+</h2>
+
+{% endif %}
+
+
+{% endblock %}
+
