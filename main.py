@@ -18,9 +18,6 @@ for row in csvreader:
 file.close()
 
 
-now = datetime.now()
-today =('%04d-%02d-%02d' %(now.year, now.month, now.day))
-
 def historical(coin,day):
     ts = ciso8601.parse_datetime(day)
     unix = time.mktime(ts.timetuple())
@@ -53,6 +50,9 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def start():
+    
+    now = datetime.now()
+    today =('%04d-%02d-%02d' %(now.year, now.month, now.day))
 
     if flask.request.method == 'POST':
         
